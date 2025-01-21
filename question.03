@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+struct Complex
+{
+    float real;
+    float imaginary;
+};
+
+struct Complex add(struct Complex a, struct Complex b)
+{
+    struct Complex result;
+    result.real = a.real + b.real;
+    result.imaginary = a.imaginary + b.imaginary;
+    return result;
+}
+
+struct Complex multiply(struct Complex a, struct Complex b)
+{
+    struct Complex result;
+    result.real = (a.real * b.real) - (a.imaginary * b.imaginary);
+    result.imaginary = (a.real * b.imaginary) + (a.imaginary * b.real);
+    return result;
+}
+
+int main()
+{
+    struct Complex num1, num2, sum, product;
+
+    printf("Enter first complex number (real and imaginary):\n");
+    printf("Real part: ");
+    scanf("%f", &num1.real);
+    printf("Imaginary part: ");
+    scanf("%f", &num1.imaginary);
+
+    printf("Enter second complex number (real and imaginary):\n");
+    printf("Real part: ");
+    scanf("%f", &num2.real);
+    printf("Imaginary part: ");
+    scanf("%f", &num2.imaginary);
+
+    sum = add(num1, num2);
+    product = multiply(num1, num2);
+
+    printf("\nSum: %.2f + %.2fi\n", sum.real, sum.imaginary);
+    printf("Product: %.2f + %.2fi\n", product.real, product.imaginary);
+
+    return 0;
+}
